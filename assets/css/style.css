@@ -38,6 +38,24 @@ ul {
     display: block;
     padding: 0 30px;
     opacity: 1;
+    position: fixed;
+    left: 270px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+.section.active {
+    z-index: 2;
+    opacity: 1;
+    animation: sideSection 1s ease;
+}
+/* گۆرینی ئاراستەی ساید باڕەکەیە */
+@keyframes sideSection { 
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0%); }
 }
 .hidden {
     display: none !important;
@@ -45,9 +63,6 @@ ul {
 .padd-15 {
     padding-left: 15px;
     padding-right: 15px;
-}
-.main-content {
-    padding-left: 270px;
 }
 .container {
     max-width: 1100px;
@@ -128,6 +143,7 @@ ul {
     justify-content: center;
     align-items: center;
     z-index: 10;
+    transition: all 0.3s ease;
 }
 .aside .logo {
     position: absolute;
@@ -179,6 +195,7 @@ ul {
     display: none;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease;
 }
 .aside .nav-toggler span {
     width: 18px;
@@ -186,6 +203,9 @@ ul {
     background: var(--skin-color);
     display: inline-block;
     position: relative;
+}
+.aside .nav-toggler.open span {
+    background: transparent;
 }
 .aside .nav-toggler span::before {
     content: '';
@@ -196,6 +216,10 @@ ul {
     top: -6px;
     left: 0;
 }
+.aside .nav-toggler.open span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
 .aside .nav-toggler span::after {
     content: '';
     height: 2px;
@@ -204,6 +228,10 @@ ul {
     position: absolute;
     top: 6px;
     left: 0;
+}
+.aside .nav-toggler.open span::after {
+    transform: rotate(-45deg);
+    top: 0;
 }
 .aside .nav {
     margin-top: 50px;
@@ -242,9 +270,9 @@ h3.hello span {
     font-weight: 700;
     color: var(--skin-color);
 }
-h2.profession {
-    font-size: 30px;
-    margin: 15px 0;
+h2.my-profession {
+    font-size: 30px !important;
+    margin: 150px 0;
 }
 .typing {
     color: var(--skin-color);
@@ -342,7 +370,6 @@ h2.profession {
     margin-top: 25px;
 }
 .about .about-content .personal-info .buttons .btn {
-    margin-right: 15px;
     margin-top: 10px;
 }
 /* Skills Start */
@@ -391,7 +418,8 @@ h2.profession {
 /* Skills End */
 
 /* Education Start */
-.about .about-content .education , .about .about-content .experience {
+.about .about-content .education , 
+.about .about-content .experience {
     flex: 0 0 50%;
     max-width: 50%;
     margin-top: 30px;
@@ -627,11 +655,28 @@ h2.profession {
 }
 /* Contact End */
 @media (max-width: 1199px) {
+    .section .container {
+        padding-top: 30px;
+        /* padding-bottom: 30px; */
+    }
     .aside {
         left: -270px;
     }
-    .main-content {
-        padding-left: 0px;
+    aside.opne {
+        left: 0;
+    }
+    .aside .nav-toggler {
+        display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggler {
+        left: 300px;
+    }
+    .section {
+        left: 0;
+    }
+    .section.opne {
+        left: 270px;
     }
     .about .about-content .personal-info .info-item p span {
         display: block;
@@ -650,7 +695,9 @@ h2.profession {
         max-width: 100%;
     }
     .home .home-img {
-        display: none;
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 100px auto;
     }
     /* .aside .nav-toggler {
         display: flex;
@@ -661,11 +708,16 @@ h2.profession {
     .contact .contact-info-item ,
     .portfolio .portfolio-item ,
     .service .service-item ,
-    .contact .about-content .education ,
-    .contact .about-content .experience ,
+    .about .about-content .experience ,
+    .about .about-content .education , 
     .about .about-content .skills ,
     .about .about-content .personal-info {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+    .home .home-img {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 100px auto;
     }
 }
