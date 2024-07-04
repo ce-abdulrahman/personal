@@ -528,7 +528,7 @@ h2.my-profession {
     text-align: center;
     transition: all 0.3s ease;
 }
-.service .service-item .service-item-inner .icon .fa {
+.service .service-item .service-item-inner .icon .fa-brands {
     font-size: 40px;
     line-height: 60px;
     color: var(--skin-color);
@@ -537,7 +537,7 @@ h2.my-profession {
 .service .service-item .service-item-inner:hover .icon {
     background: var(--skin-color);
 }
-.service .service-item .service-item-inner:hover .icon .fa {
+.service .service-item .service-item-inner:hover .icon .fa-brands {
     font-size: 25px;
     color: #ffffff;
 }
@@ -552,6 +552,10 @@ h2.my-profession {
     font-size: 16px;
     color: var(--text-black-700);
     line-height: 25px;
+}
+.service .service-item .service-item-inner p a {
+    color: var(--text-black-700);
+    text-decoration: none;
 }
 /* Service End */
 
